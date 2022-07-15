@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import ContactForm from './contactForm';
-// import Filter from './filter';
+import Filter from './filter';
 import MarkUp from './markUp';
 
 class App extends Component {
@@ -64,16 +64,7 @@ class App extends Component {
 
         <h2>Your contacts list</h2>
         <p>Find a contact by name</p>
-        {/* <div className="filter">
-          <Filter onChange={this.onChange} filter={this.state.filter} />
-        </div> */}
-
-        <input
-          type="text"
-          name="filter"
-          value={this.state.filter}
-          onChange={this.onChange}
-        />
+        <Filter onChange={this.onChange} filter={this.state.filter} />
 
         <ul className="contact_list">
           <MarkUp
