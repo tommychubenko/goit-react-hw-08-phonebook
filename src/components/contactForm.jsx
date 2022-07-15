@@ -11,7 +11,8 @@ export default class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.state.id = nanoid(3);
+    this.setState({ id: nanoid(3) });
+    // this.state.id = nanoid(3);
     this.props.contact(this.state);
   };
 
