@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo } from 'react';
-import { Component } from 'react';
+import { useState } from 'react';
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import ContactForm from './contactForm';
 import Filter from './filter';
