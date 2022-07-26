@@ -44,9 +44,9 @@ const App = () => {
   // ---- Отримання контакту з ContactForm
   const getContact = data => {
     console.log(data);
-    // checkExistContacts(data)
-    //   ? Notify.failure(`${data.name} Is already in your contact list!`)
-    //   : setContacts(prevState => [data, ...prevState]);
+    checkExistContacts(data)
+      ? Notify.failure(`${data.name} Is already in your contact list!`)
+      : setContacts(prevState => [data, ...prevState]);
   };
 
   // componentDidMount() {
