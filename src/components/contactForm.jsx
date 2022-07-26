@@ -2,16 +2,12 @@ import { useState } from 'react';
 import React from 'react';
 import { nanoid } from 'nanoid';
 
-const Form = () => {
+const Form = ({ addContact }) => {
   const [contact, setContact] = useState({
     id: nanoid(3),
     name: '',
     number: '',
   });
-  // console.log(useState(''));
-
-  // export default class Form extends Component {
-  //   state = { id: '', name: '', number: '' };
 
   const onChange = e => {
     const { name, value } = e.currentTarget;
@@ -19,10 +15,6 @@ const Form = () => {
       ...prevState,
       [name]: value,
     }));
-
-    // setContact(prevState => ({ ...prevState, id: nanoid(3) }));
-
-    // console.log(this.state);
   };
 
   const clear = () => {
@@ -31,17 +23,11 @@ const Form = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    this.props.formContact(contact);
-    console.log(contact);
+    addContact(contact);
 
     clear();
   };
 
-  // componentDidMount() {
-  //   this.setState({ id: nanoid(3) });
-  // }
-
-  // render() {
   return (
     <form onSubmit={onSubmit}>
       <h3>Name</h3>
