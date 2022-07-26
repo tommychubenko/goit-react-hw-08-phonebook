@@ -31,7 +31,7 @@ const Form = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    // this.props.formContact(contact);
+    this.props.formContact(contact);
     console.log(contact);
 
     clear();
