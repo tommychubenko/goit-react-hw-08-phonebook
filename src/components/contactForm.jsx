@@ -24,7 +24,6 @@ const Form = ({ addContact }) => {
   const onSubmit = e => {
     e.preventDefault();
     addContact(contact);
-
     clear();
   };
 
