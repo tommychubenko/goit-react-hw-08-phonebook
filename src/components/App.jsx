@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import ContactForm from './contactForm';
 import Filter from './filter';
@@ -45,6 +44,7 @@ const App = () => {
   };
 
   // ---- Отримання контакту з ContactForm
+
   const handleAddContact = data => {
     console.log(data);
     checkExistContacts(data)
@@ -61,17 +61,9 @@ const App = () => {
   // render() {
   return (
     <div className="container">
-      <h1>PhoneBook</h1>
-
       <ContactForm addContact={handleAddContact} />
-
-      <h2>Your contacts list</h2>
-      <p>Find a contact by name</p>
       <Filter onChange={onChange} filter={filter} />
-
-      <ul className="contact_list">
-        <MarkUp contacts={contacts} filter={filter} del={deleteContact} />
-      </ul>
+      <MarkUp contacts={contacts} filter={filter} del={deleteContact} />
     </div>
   );
 };
