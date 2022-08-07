@@ -1,7 +1,14 @@
-const contactsList = ({ contacts, filter, del }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { handleRemoveContact } from '../redux/store';
+import React from 'react';
+
+const ContactsList = ({ filter }) => {
+  const contactsFromRedux = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
+
   return (
     <ul className="contact_list">
-      {contacts
+      {contactsFromRedux
         .filter(({ name }) =>
           name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
         )
@@ -12,7 +19,7 @@ const contactsList = ({ contacts, filter, del }) => {
               <button
                 className="del-btn"
                 onClick={() => {
-                  del(id);
+                  dispatch(handleRemoveContact(id));
                 }}
               >
                 Delete
@@ -24,4 +31,4 @@ const contactsList = ({ contacts, filter, del }) => {
   );
 };
 
-export default contactsList;
+export default ContactsList;
