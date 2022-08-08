@@ -10,6 +10,10 @@ const checkExistContacts = (state, data) => {
   return state.unshift(data);
 };
 
+// const deleteContact = (state, action) => {
+//   return state.filter(contact => contact.id !== action);
+// };
+
 const deleteContact = (state, action) => {
   return state.filter(contact => contact.id !== action);
 };
