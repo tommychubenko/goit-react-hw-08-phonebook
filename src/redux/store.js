@@ -10,12 +10,10 @@ const checkExistContacts = (state, data) => {
   return state.unshift(data);
 };
 
-// const deleteContact = (state, action) => {
-//   return state.filter(contact => contact.id !== action);
-// };
-
 const deleteContact = (state, action) => {
-  return state.filter(contact => contact.id !== action);
+  const index = state.indexOf(state.find(contact => contact.id === action));
+
+  state.splice(index, 1);
 };
 
 const mySlice = createSlice({
