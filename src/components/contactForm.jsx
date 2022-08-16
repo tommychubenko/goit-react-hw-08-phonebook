@@ -2,7 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { useDispatch } from 'react-redux';
-import { handleAddContact } from '../redux/store';
+// import { handleAddContact } from '../redux/store';
 
 const Form = () => {
   const [contact, setContact] = useState({
@@ -27,7 +27,7 @@ const Form = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(handleAddContact(contact));
+    // dispatch(handleAddContact(contact));
     clear();
   };
 
