@@ -17,7 +17,7 @@ const App = () => {
     <div className="container">
       <ContactForm />
       <Filter onChange={onChange} filter={filter} />
-      <MarkUp filter={filter} />
+      <MarkUp filter={filter} className="markup" />
     </div>
   );
 };

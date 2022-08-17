@@ -38,3 +38,8 @@ code {
   height: 50px;
   background-color: deepskyblue;
 } */
+
+.markup{
+  display: inline-block;
+  /* width: 500px; */
+}
