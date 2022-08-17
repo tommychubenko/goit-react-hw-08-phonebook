@@ -8,7 +8,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import React from 'react';
 
 const ContactsList = ({ filter }) => {
-  const { data, error, isLoading, isFetching } = useGetContactsByNameQuery();
+  const { data, error, isFetching } = useGetContactsByNameQuery();
   const [deleteContact] = useDeleteContactMutation();
 
   useEffect(() => {
