@@ -21,7 +21,7 @@ const App = () => {
           setContacts(r);
         })
       : navigate('/');
-  }, []);
+  }, [isLoggedin, navigate]);
 
   useEffect(() => {
     if (newContact !== '') {

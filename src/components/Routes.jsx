@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router';
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect } from 'react';
 import App from './App';
 import { Home } from './Home';
 import { AppBar } from './Navigation/AppBar';
