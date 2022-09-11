@@ -20,6 +20,8 @@ export const Login = () => {
         return setEmail(value);
       case 'password':
         return setPassword(value);
+      default:
+        return;
     }
   };
 

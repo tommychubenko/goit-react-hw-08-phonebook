@@ -24,6 +24,8 @@ export const Register = () => {
         return setEmail(value);
       case 'password':
         return setPassword(value);
+      default:
+        return;
     }
   };
 
