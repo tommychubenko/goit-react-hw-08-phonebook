@@ -14,7 +14,7 @@ export const Register = () => {
 
   useEffect(() => {
     isLoggedin && navigate('/phonebook');
-  });
+  }, [isLoggedin]);
 
   const onChange = ({ target: { name, value } }) => {
     switch (name) {

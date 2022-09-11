@@ -12,7 +12,7 @@ export const Login = () => {
 
   useEffect(() => {
     isLoggedin && navigate('/phonebook');
-  });
+  }, [isLoggedin]);
 
   const onChange = ({ target: { name, value } }) => {
     switch (name) {
