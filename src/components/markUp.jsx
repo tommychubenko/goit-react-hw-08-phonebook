@@ -1,33 +1,18 @@
-import {
-  useGetContactsByNameQuery,
-  useDeleteContactMutation,
-} from 'redux/contactsApi';
-import { useEffect } from 'react';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
-
 import React from 'react';
 
-const ContactsList = ({ filter }) => {
-  const { data, error, isFetching } = useGetContactsByNameQuery();
-  const [deleteContact] = useDeleteContactMutation();
-
-  useEffect(() => {
-    isFetching && Loading.circle('Loading contacts...');
-    !isFetching && Loading.remove(500);
-  }, [isFetching]);
-
+const ContactsList = ({ filter, contacts, deleteContact }) => {
   return (
     <div className="markup">
-      {data && !error && (
+      {contacts && (
         <ul className="contact_list">
-          {data
+          {contacts
             .filter(({ name }) =>
               name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
             )
-            .map(({ id, name, phone }) => {
+            .map(({ id, name, number }) => {
               return (
                 <li key={id} className="contact_item">
-                  {name} : {phone}
+                  {name} : {number}
                   <button
                     className="del-btn"
                     onClick={() => {
@@ -41,7 +26,6 @@ const ContactsList = ({ filter }) => {
             })}
         </ul>
       )}
-      {error && <h1>Contacts {error.data}</h1>}
     </div>
   );
 };

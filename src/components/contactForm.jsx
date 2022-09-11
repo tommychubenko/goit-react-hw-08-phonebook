@@ -1,20 +1,11 @@
 import { useState } from 'react';
 import React from 'react';
 
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import {
-  useGetContactsByNameQuery,
-  useAddContactMutation,
-} from 'redux/contactsApi';
-
-const Form = () => {
+const Form = ({ sendNewContact }) => {
   const [contact, setContact] = useState({
     name: '',
-    phone: '',
+    number: '',
   });
-  const { data } = useGetContactsByNameQuery();
-
-  const [addContact] = useAddContactMutation();
 
   const onChange = e => {
     const { name, value } = e.currentTarget;
@@ -25,24 +16,14 @@ const Form = () => {
   };
 
   const clear = () => {
-    setContact({ name: '', phone: '' });
-  };
-
-  const checkExistContacts = (data, newContact) => {
-    for (const contact of data) {
-      if (contact.name.toLowerCase() === newContact.name.toLowerCase()) {
-        return Notify.failure(
-          `${newContact.name} Is already in your contact list!`
-        );
-      }
-    }
-    return addContact(contact);
+    setContact({ name: '', number: '' });
   };
 
   const onSubmit = e => {
     e.preventDefault();
+    sendNewContact(contact);
+    console.log(contact);
 
-    checkExistContacts(data, contact);
     clear();
   };
 
@@ -62,8 +43,8 @@ const Form = () => {
       <h3>Telephone number</h3>
       <input
         type="tel"
-        name="phone"
-        value={contact.phone}
+        name="number"
+        value={contact.number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
